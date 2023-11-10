@@ -21,4 +21,4 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
         with:
           source: "index.html"
-          target: "$HOME/www"
+          target: "/home/juamelmos/www"
