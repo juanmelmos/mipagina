@@ -22,4 +22,4 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "css/"
-        target: "/var/www/html"
+        target: "/home/juamelmos/www"
