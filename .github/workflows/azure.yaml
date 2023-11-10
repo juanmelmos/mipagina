@@ -1,0 +1,24 @@
+name: Despliegue en Azure
+
+on: [workflow_dispatch]
+jobs:
+  fake:
+    runs-on: ubuntu-latest
+    steps:
+    - name: faking
+      run : echo "faking a job to take a time"
+  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: copy file via ssh password
+        uses: appleboy/scp-actions@v0.1.4
+        env:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          KEY: ${{ secrets.SSHKEY }}
+        with:
+          source: "index.html"
+          target: "/var/www/html"
