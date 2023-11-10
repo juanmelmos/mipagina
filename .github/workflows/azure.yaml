@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: copy file via ssh password
-        uses: appleboy/scp-actions@v0.1.4
+        uses: appleboy/scp-action@v0.1.4
         env:
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
