@@ -23,7 +23,7 @@ jobs:
         with:
           HOST: ${{ secrets.HOST1 }}
           USERNAME: ${{ secrets.USERNAME1 }}
-          PORT: ${{ secrets.PORT1 }}
+          PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY1 }}
           source: "index.html,css/,imgs/"
           target: "/home/juamelmos/www"
@@ -38,7 +38,7 @@ jobs:
         with:
           HOST: ${{ secrets.HOST2 }}
           USERNAME: ${{ secrets.USERNAME2 }}
-          PORT: ${{ secrets.PORT2 }}
+          PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY2 }}
           source: "index.html,css/,imgs/"
           target: "/home/juamelmos/www"
