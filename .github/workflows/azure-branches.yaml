@@ -1,0 +1,44 @@
+name: Despliegue en Azure
+
+on:
+  push:
+    branches:
+      - main
+      - prueba
+
+jobs:
+  fake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: faking
+        run: echo "faking a job to take a time"
+
+  deploy_main:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          HOST: ${{ secrets.HOST1 }}
+          USERNAME: ${{ secrets.USERNAME1 }}
+          PORT: ${{ secrets.PORT1 }}
+          KEY: ${{ secrets.SSHKEY1 }}
+          source: "index.html,css/,imgs/"
+          target: "/home/juamelmos/www"
+
+  deploy_prueba:
+    if: github.ref == 'refs/heads/prueba'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          HOST: ${{ secrets.HOST2 }}
+          USERNAME: ${{ secrets.USERNAME2 }}
+          PORT: ${{ secrets.PORT2 }}
+          KEY: ${{ secrets.SSHKEY2 }}
+          source: "index.html,css/,imgs/"
+          target: "/home/juamelmos/www"
