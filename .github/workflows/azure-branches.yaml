@@ -40,5 +40,5 @@ jobs:
           USERNAME: ${{ secrets.USERNAME2 }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY2 }}
-          source: "index.html,css/,imgs/"
-          target: "/home/juamelmos/www"
+          source: "index.html"
+          target: "/home/admin12/web"
